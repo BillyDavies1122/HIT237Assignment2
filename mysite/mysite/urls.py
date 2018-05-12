@@ -19,5 +19,9 @@ from assignment2 import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^home/',views.homepage),
+    url(r'^home/',views.homepage,name='home'),
+    url(r'^create/',views.create,name='create'),
+    url(r'^read/',views.read,name='read'),
+    url(r'^update/',views.update,name='update'),
+    url(r'^delete/',views.delete,name='delete'),
 ]
