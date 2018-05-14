@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/',views.homepage,name='home'),
     url(r'^create/',views.create,name='create'),
-    url(r'^read/',views.read,name='read'),
+    url(r'^read/',views.allResults,name='read'),
     url(r'^update/',views.update,name='update'),
     url(r'^delete/',views.delete,name='delete'),
 ]

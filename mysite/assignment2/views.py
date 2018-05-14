@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . import models
+from assignment2.models import *
 
 #login = billy
 #password = steelseries
@@ -18,5 +18,10 @@ def update(request):
 def delete(request):
     return render(request,'homePageblock.html')
 
-def read(request):
-    return render(request,'homePageblock.html')
+
+def allResults(request):
+    results = game.objects.get(gameName='wow')
+    pageData = {'names':results}
+
+
+    return render(request,'readBlock.html',pageData)

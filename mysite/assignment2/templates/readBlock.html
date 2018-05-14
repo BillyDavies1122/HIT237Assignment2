@@ -1,0 +1,16 @@
+{% extends "readItems.html" %}
+
+  {% block pagetitle %}
+  Read
+  {% endblock %}
+
+{% block loaditems %}
+    {%for item in pageData %}
+      <p>Name is: {{item.gameName}} </p>
+    {% endfor %}
+{% endblock %}
+
+
+<body>
+
+</body>

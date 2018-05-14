@@ -8,3 +8,10 @@
   <p>Student number: 230525</p>
   <p>Student Name: Billy Davies</p>
   {% endblock %}
+
+
+  {% block loaditems %}
+    {%for names in pageData %}
+      <p>Name is:</p> {{names}}
+    {% endfor %}
+  {% endblock %}
