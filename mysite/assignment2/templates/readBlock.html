@@ -5,8 +5,13 @@
   {% endblock %}
 
 {% block loaditems %}
-    {%for item in pageData %}
+    {% for item in names %}
       <p>Name is: {{item.gameName}} </p>
+      <p>Description: {{item.description}} </p>
+      <p>Published by: {{item.publisher}} </p>
+      <p>Ram needed: {{item.systemRequirements}} </p>
+      <p>Price in dollars: {{item.price}} </p>
+      <br>
     {% endfor %}
 {% endblock %}
 

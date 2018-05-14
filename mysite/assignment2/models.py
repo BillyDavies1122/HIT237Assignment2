@@ -8,8 +8,6 @@ one system requirements can have one game
 
 
 """
-
-
 # Create your models here.
 class publisher(models.Model):
     publisherName = models.CharField(max_length=100)
@@ -34,7 +32,7 @@ class game(models.Model):
      price = models.DecimalField(max_digits=5,decimal_places=2)
      releaseDate = models.DateField(auto_now=False, auto_now_add=False)
      publisher = models.ForeignKey(publisher,default='')
-     systemRequirements = models.OneToOneField(systemRequirements,default='')
+     systemRequirements = models.ForeignKey(systemRequirements,default='')
 
      def __str__(self):
          """returns a string representation of the model"""

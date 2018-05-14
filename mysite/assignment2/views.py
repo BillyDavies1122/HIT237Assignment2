@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import *
 from assignment2.models import *
+from assignment2.forms import *
+from django.http import *
+from django.views.decorators.csrf import *
+from django.template import RequestContext
 
 #login = billy
 #password = steelseries
@@ -18,10 +22,23 @@ def update(request):
 def delete(request):
     return render(request,'homePageblock.html')
 
-
 def allResults(request):
-    results = game.objects.get(gameName='wow')
-    pageData = {'names':results}
-
-
+    pageData = {'names':game.objects.all()}
     return render(request,'readBlock.html',pageData)
+
+def deleteResult(request):
+    game.objects.filter(gameName='').delete()
+    return render(request,'readBlock.html')
+
+@csrf_protect
+def createGameEntry(request):
+    if request.POST:
+        form = gameEntryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('')
+    else:
+        form = gameEntryForm()
+    args={}
+    args['form'] = form
+    return render(request,'createFormBlock.html',args)

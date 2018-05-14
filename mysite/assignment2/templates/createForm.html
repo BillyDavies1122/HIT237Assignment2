@@ -1,0 +1,16 @@
+<DOCTYPE !HTML>
+<html lang="en">
+<head>
+  <title> {% block pagetitle %}{% endblock %}</title>
+</head>
+
+<body>
+{%include 'navigation.html' %}
+
+{% block pageContent %}
+<p> Failed to load page content</p>
+{% endblock %}
+
+</body>
+
+</html>
