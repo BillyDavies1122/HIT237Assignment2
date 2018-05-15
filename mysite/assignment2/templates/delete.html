@@ -8,31 +8,31 @@
 {% block pageContent %}
 
 {% if request.get_full_path == "/deleteGame/" %}
-  <form action="{% url 'deleteGame' %}" method='post'> {% csrf_token %}
-    <h1> Type the name of the game to delete </h1>
+<form action="{% url 'deleteGame' %}" method='post'> {% csrf_token %}
+  <h1> Type the name of the game to delete </h1>
     <ul>
-    Game Name:  <input name="deletionInput" type="text">
+      <li>Game Name:  <input name="deletionInput" type="text"></li>
     </ul>
-    <input type="submit" name="submit" value="Delete Entry">
-  </form>
+  <input type="submit" name="submit" value="Delete Entry">
+</form>
 
 {% elif request.get_full_path == "/deletePublisher/" %}
-  <form action="{% url 'deletePublisher' %}" method='post'> {% csrf_token %}
-    <h1> Type the name of the Publisher to delete </h1>
-    <ul>
-    Publihser Name:  <input name="deletionInput" type="text">
-    </ul>
-    <input type="submit" name="submit" value="Delete Entry">
-  </form>
+<form action="{% url 'deletePublisher' %}" method='post'> {% csrf_token %}
+  <h1> Type the name of the Publisher to delete </h1>
+  <ul>
+    <li>Publisher Name:  <input name="deletionInput" type="text"></li>
+  </ul>
+  <input type="submit" name="submit" value="Delete Entry">
+</form>
 
 {% elif request.get_full_path == "/deleteSystReq/" %}
-  <form action="{% url 'deleteSystReq' %}" method='post'> {% csrf_token %}
-    <h1> Type the memory needed to delete </h1>
-    <ul>
-    Memory needed:  <input name="deletionInput" type="text">
-    </ul>
-    <input type="submit" name="submit" value="Delete Entry">
-  </form>
+<form action="{% url 'deleteSystReq' %}" method='post'> {% csrf_token %}
+  <h1> Type the memory needed to delete </h1>
+  <ul>
+    <li>Memory needed:  <input name="deletionInput" type="text"></li>
+  </ul>
+  <input type="submit" name="submit" value="Delete Entry">
+</form>
 {% endif %}
 
 {% endblock %}

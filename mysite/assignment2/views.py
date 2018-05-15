@@ -17,8 +17,13 @@ def delete(request):
     return render(request,'deleteChoiceBlock.html')
 
 def deleteEntry(request):
-    if 1==0:
-        pass
+    if request.POST:
+        if request.path == '/deleteGame/':
+            return render(request,'index.html')
+        elif request.path == '/deletePublisher/':
+            return render(request,'index.html')
+        elif request.path == '/deleteSystReq/':
+            return render(request,'index.html')
     else:
         if request.path == '/deleteGame/':
             return render(request,'delete.html')
@@ -26,6 +31,8 @@ def deleteEntry(request):
             return render(request,'delete.html')
         elif request.path == '/deleteSystReq/':
             return render(request,'delete.html')
+        return render(request,'delete.html')
+
 
 
 
