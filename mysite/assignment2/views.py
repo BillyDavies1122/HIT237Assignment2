@@ -9,36 +9,70 @@ from django.template import RequestContext
 #password = steelseries
 
 # Create your views here.
-
 def homepage(request):
     return render(request,'homePageblock.html')
-
-def create(request):
-    return render(request,'homePageblock.html')
-
 def update(request):
     return render(request,'homePageblock.html')
-
 def delete(request):
-    return render(request,'homePageblock.html')
+    return render(request,'deleteChoiceBlock.html')
 
-def allResults(request):
-    pageData = {'names':game.objects.all()}
-    return render(request,'readBlock.html',pageData)
+def deleteEntry(request):
+    if 1==0:
+        pass
+    else:
+        if request.path == '/deleteGame/':
+            pass
+        elif request.path == '/deletePublisher/':
+            pass
+        elif request.path == '/deleteSystReq/':
+            pass
+        return render(request,'delete.html')
 
-def deleteResult(request):
-    game.objects.filter(gameName='').delete()
-    return render(request,'readBlock.html')
+
+
+def read(request):
+    return render(request,'readChoiceBlock.html')
+
+def readEntries(request):
+    if request.path == '/readGame/':
+        pageData = {'names':game.objects.all()}
+        return render(request,'readBlock.html',pageData)
+    elif request.path == '/readPublisher/':
+        pageData = {'names':publisher.objects.all()}
+        return render(request,'readBlock.html',pageData)
+    elif request.path == '/readSystReq/':
+        pageData = {'names':systemRequirements.objects.all()}
+        return render(request,'readBlock.html',pageData)
+
+
+def create(request):
+    return render(request,'createChoiceBlock.html')
 
 @csrf_protect
-def createGameEntry(request):
+def createNewEntry(request):
     if request.POST:
-        form = gameEntryForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('')
+        if request.path == '/createGame/':
+            form = gameEntryForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return render(request,'homePageblock.html')
+        if request.path == '/createPublisher/':
+            form = publisherEntryForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return render(request,'homePageblock.html')
+        if request.path == '/createSystReq/':
+            form = systemRequirementsEntryForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return render(request,'homePageblock.html')
     else:
-        form = gameEntryForm()
-    args={}
-    args['form'] = form
-    return render(request,'createFormBlock.html',args)
+        if request.path == '/createGame/':
+            form = gameEntryForm()
+        elif request.path == '/createPublisher/':
+            form = publisherEntryForm()
+        elif request.path == '/createSystReq/':
+            form = systemRequirementsEntryForm()
+    formContainer = {}
+    formContainer['form'] = form
+    return render(request,'createFormBlock.html',formContainer)

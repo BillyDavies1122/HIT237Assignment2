@@ -1,20 +1,43 @@
-{% extends "readItems.html" %}
+{% extends "index.html" %}
 
   {% block pagetitle %}
   Read
   {% endblock %}
 
-{% block loaditems %}
-    {% for item in names %}
-      <p>Name is: {{item.gameName}} </p>
-      <p>Description: {{item.description}} </p>
-      <p>Published by: {{item.publisher}} </p>
-      <p>Ram needed: {{item.systemRequirements}} </p>
-      <p>Price in dollars: {{item.price}} </p>
-      <br>
-    {% endfor %}
-{% endblock %}
+{% block pageContent %}
 
+  {% if request.get_full_path == "/readGame/"%}
+    {% for item in names %}
+    <div class='infoBox'>
+      <p>Name of the game:  {{item.gameName}}</p>
+      <p>Description of the game:  {{item.description}}</p>
+      <p>The price of the game(in dollars):  {{item.price}}</p>
+      <p>The game was or will be released on:  {{item.releaseDate}}</p>
+      <p>The game was published by:  {{item.publisher}}</p>
+      <p>Minimum Ram needed to run the game:  {{item.systemRequirements}}</p>
+
+    </div>
+    {% endfor %}
+
+  {% elif request.get_full_path == "/readPublisher/" %}
+    {% for item in names %}
+    <div class='infoBox'>
+      <p>Name is:{{item.publisherName}}</p>
+      <p>Name is:{{item.Location}}</p>
+      <p>Name is:{{item.dateFounded}}</p>
+    </div>
+    {% endfor %}
+
+  {% elif request.get_full_path == "/readSystReq/" %}
+    {% for item in names %}
+    <div class='infoBox'>
+      <p>Name is:{{item.memoryNeeded}}</p>
+      <p>Name is:{{item.miniumumDiskSpace}}</p>
+      <p>Name is:{{item.gpuRequired}}</p>
+    </div>
+    {% endfor %}
+  {% endif %}
+{% endblock %}
 
 <body>
 

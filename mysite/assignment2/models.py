@@ -4,7 +4,7 @@ One publisher has many games
 one game can have one publisher
 
 one game can have one set of system systemRequirements
-one system requirements can have one game
+one system requirements can ne the same for many games
 
 
 """

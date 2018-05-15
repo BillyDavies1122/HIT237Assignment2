@@ -20,8 +20,23 @@ from assignment2 import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/$',views.homepage,name='home'),
-    url(r'^create/$',views.createGameEntry,name='create'),
-    url(r'^read/$',views.allResults,name='read'),
+    #URLS relating to the creation of new data
+    url(r'^create/$',views.create,name='create'),
+    url(r'^createGame/$',views.createNewEntry,name='createGame'),
+    url(r'^createPublisher/$',views.createNewEntry,name='createPublisher'),
+    url(r'^createSystReq/$',views.createNewEntry,name='createSystReq'),
+
+    #URLS relating to displaying he current data
+    url(r'^read/$',views.read,name='read'),
+    url(r'^readGame/$',views.readEntries,name='readGame'),
+    url(r'^readPublisher/$',views.readEntries,name='readPublisher'),
+    url(r'^readSystReq/$',views.readEntries,name='readSystReq'),
+
     url(r'^update/$',views.update,name='update'),
-    url(r'^delete/$',views.deleteResult,name='delete'),
+
+    #URLS relating to deleting the current data
+    url(r'^delete/$',views.delete,name='delete'),
+    url(r'^deleteGame/$',views.deleteEntry,name='deleteGame'),
+    url(r'^deleteGame/$',views.deleteEntry,name='deletePublisher'),
+    url(r'^deleteGame/$',views.deleteEntry,name='deleteSystReq'),
 ]

@@ -1,17 +1,10 @@
-{% extends "homePage.html" %}
+{% extends "index.html" %}
 
   {% block pagetitle %}
   Home page
   {% endblock %}
 
-  {% block pagecontent %}
+  {% block pageContent %}
   <p>Student number: 230525</p>
   <p>Student Name: Billy Davies</p>
-  {% endblock %}
-
-
-  {% block loaditems %}
-    {%for names in pageData %}
-      <p>Name is:</p> {{names}}
-    {% endfor %}
   {% endblock %}

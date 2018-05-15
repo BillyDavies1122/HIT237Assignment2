@@ -1,16 +1,38 @@
-{% extends "createForm.html" %}
+{% extends "index.html" %}
 
 {% block pagetitle %}
   Home page
 {% endblock %}
 
 {% block pageContent %}
-<form action="{% url 'create' %}" method='post'> {% csrf_token %}
+
+{% if request.get_full_path == "/createGame/" %}
+<form action="{% url 'createGame' %}" method='post'> {% csrf_token %}
+  <h1> New Entry into Database </h1>
   <ul>
     {{form.as_ul}}
   </ul>
-
 <input type="submit" name="submit" value="Create Entry">
 </form>
+
+{% elif request.get_full_path == "/createPublisher/" %}
+<form action="{% url 'createPublisher' %}" method='post'> {% csrf_token %}
+  <h1> New Entry into Database </h1>
+  <ul>
+    {{form.as_ul}}
+  </ul>
+<input type="submit" name="submit" value="Create Entry">
+</form>
+
+{% elif request.get_full_path == "/createSystReq/" %}
+<form action="{% url 'createSystReq' %}" method='post'> {% csrf_token %}
+  <h1> New Entry into Database </h1>
+  <ul>
+    {{form.as_ul}}
+  </ul>
+<input type="submit" name="submit" value="Create Entry">
+</form>
+
+{% endif %}
 
 {% endblock %}
