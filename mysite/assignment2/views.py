@@ -21,12 +21,12 @@ def deleteEntry(request):
         pass
     else:
         if request.path == '/deleteGame/':
-            pass
+            return render(request,'delete.html')
         elif request.path == '/deletePublisher/':
-            pass
+            return render(request,'delete.html')
         elif request.path == '/deleteSystReq/':
-            pass
-        return render(request,'delete.html')
+            return render(request,'delete.html')
+
 
 
 

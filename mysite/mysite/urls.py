@@ -37,6 +37,6 @@ urlpatterns = [
     #URLS relating to deleting the current data
     url(r'^delete/$',views.delete,name='delete'),
     url(r'^deleteGame/$',views.deleteEntry,name='deleteGame'),
-    url(r'^deleteGame/$',views.deleteEntry,name='deletePublisher'),
-    url(r'^deleteGame/$',views.deleteEntry,name='deleteSystReq'),
+    url(r'^deletePublisher/$',views.deleteEntry,name='deletePublisher'),
+    url(r'^deleteSystReq/$',views.deleteEntry,name='deleteSystReq'),
 ]

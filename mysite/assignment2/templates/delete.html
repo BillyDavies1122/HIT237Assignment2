@@ -4,12 +4,8 @@
   Delete
 {% endblock %}
 
-{%include 'navigation.html' %}
 
 {% block pageContent %}
-{% endblock %}
-
-{% block deleteSelection %}
 
 {% if request.get_full_path == "/deleteGame/" %}
   <form action="{% url 'deleteGame' %}" method='post'> {% csrf_token %}
