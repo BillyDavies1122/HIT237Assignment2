@@ -20,19 +20,24 @@ from assignment2 import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/$',views.homepage,name='home'),
+
     #URLS relating to the creation of new data
     url(r'^create/$',views.create,name='create'),
     url(r'^createGame/$',views.createNewEntry,name='createGame'),
     url(r'^createPublisher/$',views.createNewEntry,name='createPublisher'),
     url(r'^createSystReq/$',views.createNewEntry,name='createSystReq'),
 
-    #URLS relating to displaying he current data
+    #URLS relating to displaying the current data
     url(r'^read/$',views.read,name='read'),
     url(r'^readGame/$',views.readEntries,name='readGame'),
     url(r'^readPublisher/$',views.readEntries,name='readPublisher'),
     url(r'^readSystReq/$',views.readEntries,name='readSystReq'),
 
+    #URLS relating to updating the current data
     url(r'^update/$',views.update,name='update'),
+    url(r'^updateGame/$',views.updateEntry,name='updateGame'),
+    url(r'^updatePublisher/$',views.updateEntry,name='updatePublisher'),
+    url(r'^updateSystReq/$',views.updateEntry,name='updateSystReq'),
 
     #URLS relating to deleting the current data
     url(r'^delete/$',views.delete,name='delete'),

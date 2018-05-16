@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% block pagetitle %}
+  Home page
+{% endblock %}
+
+{% block pageContent %}
+
+{% if request.get_full_path == "/updateGame/" %}
+<form action="{% url 'updateGame' %}" method='post'> {% csrf_token %}
+  <h1> Update entry in Database </h1>
+  <ul>
+    <li> Game to update: <input type="text" name="toUpdate"></li>
+    <br>
+    {{form.as_ul}}
+  </ul>
+<input type="submit" name="submit" value="update Entry">
+</form>
+
+{% elif request.get_full_path == "/updatePublisher/" %}
+<form action="{% url 'updatePublisher' %}" method='post'> {% csrf_token %}
+  <h1> update entry in Database </h1>
+  <ul>
+    <li> Publisher to update: <input type="text" name="toUpdate"></li>
+    <br>
+    {{form.as_ul}}
+  </ul>
+<input type="submit" name="submit" value="update Entry">
+</form>
+
+{% elif request.get_full_path == "/updateSystReq/" %}
+<form action="{% url 'updateSystReq' %}" method='post'> {% csrf_token %}
+  <h1> update entry in Database</h1>
+  <ul>
+    <li> System Requirement to update: <input type="text" name="toUpdate"></li>
+    <br>
+    {{form.as_ul}}
+  </ul>
+<input type="submit" name="submit" value="update Entry">
+</form>
+
+{% endif %}
+
+{% endblock %}

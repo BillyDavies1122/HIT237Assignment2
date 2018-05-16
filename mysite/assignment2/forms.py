@@ -5,6 +5,11 @@ class gameEntryForm(forms.ModelForm):
     class Meta:
         model = game
         fields = ('gameName','description','price','releaseDate','publisher','systemRequirements')
+class gameUpdateForm(forms.ModelForm):
+    class Meta:
+        model = game
+        fields = ('gameName','description','price','releaseDate')
+
 class publisherEntryForm(forms.ModelForm):
     class Meta:
         model = publisher

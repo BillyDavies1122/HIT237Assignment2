@@ -15,25 +15,27 @@
       <p>The game was or will be released on:  {{item.releaseDate}}</p>
       <p>The game was published by:  {{item.publisher}}</p>
       <p>Minimum Ram needed to run the game:  {{item.systemRequirements}}</p>
-
+      <br>
     </div>
     {% endfor %}
 
   {% elif request.get_full_path == "/readPublisher/" %}
     {% for item in names %}
     <div class='infoBox'>
-      <p>Name is:{{item.publisherName}}</p>
-      <p>Name is:{{item.Location}}</p>
-      <p>Name is:{{item.dateFounded}}</p>
+      <p>Name of the Publisher:{{item.publisherName}}</p>
+      <p>Publishers Location:{{item.Location}}</p>
+      <p>Date they were founded:{{item.dateFounded}}</p>
+      <br>
     </div>
     {% endfor %}
 
   {% elif request.get_full_path == "/readSystReq/" %}
     {% for item in names %}
     <div class='infoBox'>
-      <p>Name is:{{item.memoryNeeded}}</p>
-      <p>Name is:{{item.miniumumDiskSpace}}</p>
-      <p>Name is:{{item.gpuRequired}}</p>
+      <p>Minimum memory needed: {{item.memoryNeeded}}</p>
+      <p>Minimum Hard Disk space:{{item.miniumumDiskSpace}}</p>
+      <p>Minimum GPU required:{{item.gpuRequired}}</p>
+      <br>
     </div>
     {% endfor %}
   {% endif %}
