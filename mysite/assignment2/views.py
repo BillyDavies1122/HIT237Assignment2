@@ -31,7 +31,7 @@ def updateEntry(request):
             toUpdate = request.POST.get("toUpdate")
             publisher.objects.filter(publisherName = toUpdate).update(
                 publisherName = request.POST.get("publisherName"),
-                location= request.POST.get("location"),
+                Location = request.POST.get("Location"),
                 dateFounded= request.POST.get("dateFounded"))
             return render(request,'homePageblock.html')
             #for system requirements type
@@ -80,6 +80,7 @@ def deleteEntry(request):
                 return render(request,'homePageblock.html')
             else:
                 publisher.objects.filter(publisherName=toDelete).delete()
+            return render(request,'homePageblock.html')
         #Deletes from the systemRequirements model
         elif request.path == '/deleteSystReq/':
             toDelete = request.POST.get("deletionInput")
