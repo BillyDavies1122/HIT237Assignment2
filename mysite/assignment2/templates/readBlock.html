@@ -1,4 +1,4 @@
-<ul>{% extends "index.html" %}
+{% extends "index.html" %}
 
   {% block pagetitle %}
   Read entries
@@ -9,6 +9,7 @@
   {% if request.get_full_path == "/readGame/"%}
     {% for item in names %}
     <div class='infoBox'>
+      <h1> Game Entry </h1>
       <ul>
         <li>Name of the game:  {{item.gameName}}</li>
         <li>Description of the game:  {{item.description}}</li>
@@ -17,27 +18,28 @@
         <li>The game was published by:  {{item.publisher}}</li>
         <li>Minimum Ram needed to run the game:  {{item.systemRequirements}}</li>
       </ul>
-      <br>
     </div>
     {% endfor %}
 
   {% elif request.get_full_path == "/readPublisher/" %}
     {% for item in names %}
     <div class='infoBox'>
-      <p>Name of the Publisher:{{item.publisherName}}</p>
-      <p>Publishers Location:{{item.Location}}</p>
-      <p>Date they were founded:{{item.dateFounded}}</p>
-      <br>
+      <ul>
+        <li>Name of the Publisher:{{item.publisherName}}</li>
+        <li>Publishers Location:{{item.Location}}</li>
+        <li>Date they were founded:{{item.dateFounded}}</li>
+      </ul>
     </div>
     {% endfor %}
 
   {% elif request.get_full_path == "/readSystReq/" %}
     {% for item in names %}
     <div class='infoBox'>
-      <p>Minimum memory needed: {{item.memoryNeeded}}</p>
-      <p>Minimum Hard Disk space:{{item.miniumumDiskSpace}}</p>
-      <p>Minimum GPU required:{{item.gpuRequired}}</p>
-      <br>
+      <ul>
+        <li>Minimum memory needed: {{item.memoryNeeded}}</li>
+        <li>Minimum Hard Disk space:{{item.miniumumDiskSpace}}</li>
+        <li>Minimum GPU required:{{item.gpuRequired}}</li>
+      </ul>
     </div>
     {% endfor %}
   {% endif %}

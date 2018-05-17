@@ -1,8 +1,46 @@
+{% load static %}
 <DOCTYPE !HTML>
 <html lang="en">
 <head>
   <title> {% block pagetitle %}{% endblock %}</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <style>
+    body{
+      background-color: #ffffe5;
+      color: #0A0A0A;
+      font-size: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 75%;
+    }
+    nav{
+      padding-bottom: 50px;
+    }
+    .infoBox{
+      width:60%;
+      margin-bottom: 50px;
+      border: 3px solid;
+    }
+    div ul{
+      list-style-type: none;
+    }
+    div li{
+      padding-bottom: 5px;
+    }
+    input{
+      margin-left:5px;
+    }
+    div h1{
+      text-align: center;
+    }
+    .contentContainer{
+      display: flex;
+      position: relative;
+    }
+    button{
+      width: 150px;
+      height: 50px;
+    }
+  </style>
 </head>
 
 <body>
@@ -11,12 +49,11 @@
 {%include 'navigation.html' %}
   </ul>
 </nav>
-<br>
-
+<div class='contentContainer'>
 {% block pageContent %}
 <p> Failed to load page content</p>
 {% endblock %}
-
+</div>
 
 
 </body>

@@ -5,8 +5,10 @@
 {% endblock %}
 
 {% block pageContent %}
+<div class='buttons'>
 <H1> Click on a button below to delete an entry of that type</h1>
 <button onclick="location.href={% url 'deleteGame' %}"> Game </button>
 <button onclick="location.href={% url 'deletePublisher' %}"> Publisher </button>
 <button onclick="location.href={% url 'deleteSystReq' %}"> System Requirements </button>
+  </div>
 {% endblock %}

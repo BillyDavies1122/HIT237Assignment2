@@ -8,6 +8,7 @@
 {% block pageContent %}
 
 {% if request.get_full_path == "/deleteGame/" %}
+<div class='infoBox'>
 <form action="{% url 'deleteGame' %}" method='post'> {% csrf_token %}
   <h1> Type the name of the game to delete </h1>
     <ul>
@@ -15,8 +16,9 @@
     </ul>
   <input type="submit" name="submit" value="Delete Entry">
 </form>
-
+<div>
 {% elif request.get_full_path == "/deletePublisher/" %}
+<div class='infoBox'>
 <form action="{% url 'deletePublisher' %}" method='post'> {% csrf_token %}
   <h1> Type the name of the Publisher to delete </h1>
   <ul>
@@ -24,8 +26,9 @@
   </ul>
   <input type="submit" name="submit" value="Delete Entry">
 </form>
-
+<div>
 {% elif request.get_full_path == "/deleteSystReq/" %}
+<div class='infoBox'>
 <form action="{% url 'deleteSystReq' %}" method='post'> {% csrf_token %}
   <h1> Type the memory needed to delete </h1>
   <ul>
@@ -33,6 +36,7 @@
   </ul>
   <input type="submit" name="submit" value="Delete Entry">
 </form>
+<div>
 {% endif %}
 
 {% endblock %}

@@ -4,7 +4,7 @@ from assignment2.forms import *
 from django.http import *
 from django.views.decorators.csrf import *
 from django.template import RequestContext
-
+#password for admin app
 #login = billy
 #password = steelseries
 
@@ -14,6 +14,18 @@ def homepage(request):
 
 def update(request):
     return render(request,'updateChoiceblock.html')
+
+"""
+The function below is used to update an object belonging to one of three models.
+if the request is a POST it then checks the file path of the request to discover which kind of object is is updating
+Then updates the object with the appropriate new information
+
+If the request isnt a POST it checks the file path and uses that to create the correc form type
+then returns the form to be rendered.
+When that form is submitted the POST part of the function will be used.
+
+
+"""
 
 def updateEntry(request):
     if request.POST:
@@ -109,6 +121,14 @@ def deleteEntry(request):
 def read(request):
     return render(request,'readChoiceBlock.html')
 
+
+'''
+The function below reads all the entries in a given model
+It checks the file path to find out which model to read
+Creates a dict object containing any objects belonging to that model
+then returns them to be rendered.
+
+'''
 def readEntries(request):
     if request.path == '/readGame/':
         pageData = {'names':game.objects.all()}
@@ -127,6 +147,8 @@ def create(request):
 '''
 The createNewEntry function takes a request and if its a POST action it checks the form data and then sends it to the Database
 If its not a POST action it creates the correct form type and then sends it back to the request and renders it.
+When that form is submitted the POST part of the function will be ran through
+
 
 if request is a POST
     form = required form type containing the request data

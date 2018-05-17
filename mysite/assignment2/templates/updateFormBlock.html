@@ -7,6 +7,7 @@
 {% block pageContent %}
 
 {% if request.get_full_path == "/updateGame/" %}
+<div class='infoBox'>
 <form action="{% url 'updateGame' %}" method='post'> {% csrf_token %}
   <h1> Update entry in Database </h1>
   <ul>
@@ -16,10 +17,11 @@
   </ul>
 <input type="submit" name="submit" value="update Entry">
 </form>
-
+<div>
 {% elif request.get_full_path == "/updatePublisher/" %}
+<div class='infoBox'>
 <form action="{% url 'updatePublisher' %}" method='post'> {% csrf_token %}
-  <h1> update entry in Database </h1>
+  <h1> Update entry in Database </h1>
   <ul>
     <li> Publisher to update: <input type="text" name="toUpdate"></li>
     <br>
@@ -27,10 +29,11 @@
   </ul>
 <input type="submit" name="submit" value="update Entry">
 </form>
-
+<div>
 {% elif request.get_full_path == "/updateSystReq/" %}
+<div class='infoBox'>
 <form action="{% url 'updateSystReq' %}" method='post'> {% csrf_token %}
-  <h1> update entry in Database</h1>
+  <h1> Update entry in Database</h1>
   <ul>
     <li> System Requirement to update: <input type="text" name="toUpdate"></li>
     <br>
@@ -38,7 +41,7 @@
   </ul>
 <input type="submit" name="submit" value="update Entry">
 </form>
-
+<div>
 {% endif %}
 
 {% endblock %}
