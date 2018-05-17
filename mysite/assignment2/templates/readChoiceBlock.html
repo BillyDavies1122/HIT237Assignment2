@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block pageContent %}
-<H1> Click on one to create an entry of that type </h1>
+<H1> Click on a button below to read all entires of that type </h1>
 <button onclick="location.href={% url 'readGame' %}"> Game </button>
 <button onclick="location.href={% url 'readPublisher' %}"> Publisher </button>
 <button onclick="location.href={% url 'readSystReq' %}"> System Requirements </button>

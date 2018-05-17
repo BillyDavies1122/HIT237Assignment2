@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block pageContent %}
-<H1> Click on one to create an entry of that type </h1>
+<H1> Click on a button below to delete an entry of that type</h1>
 <button onclick="location.href={% url 'deleteGame' %}"> Game </button>
 <button onclick="location.href={% url 'deletePublisher' %}"> Publisher </button>
 <button onclick="location.href={% url 'deleteSystReq' %}"> System Requirements </button>

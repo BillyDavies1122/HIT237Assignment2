@@ -1,7 +1,7 @@
-{% extends "index.html" %}
+<ul>{% extends "index.html" %}
 
   {% block pagetitle %}
-  Read
+  Read entries
   {% endblock %}
 
 {% block pageContent %}
@@ -9,12 +9,14 @@
   {% if request.get_full_path == "/readGame/"%}
     {% for item in names %}
     <div class='infoBox'>
-      <p>Name of the game:  {{item.gameName}}</p>
-      <p>Description of the game:  {{item.description}}</p>
-      <p>The price of the game(in dollars):  {{item.price}}</p>
-      <p>The game was or will be released on:  {{item.releaseDate}}</p>
-      <p>The game was published by:  {{item.publisher}}</p>
-      <p>Minimum Ram needed to run the game:  {{item.systemRequirements}}</p>
+      <ul>
+      <li>Name of the game:  {{item.gameName}}</ul>
+      <li>Description of the game:  {{item.description}}</li>
+      <li>The price of the game(in dollars):  {{item.price}}</li>
+      <li>The game was or will be released on:  {{item.releaseDate}}</li>
+      <li>The game was published by:  {{item.publisher}}</li>
+      <li>Minimum Ram needed to run the game:  {{item.systemRequirements}}</li>
+    </ul>
       <br>
     </div>
     {% endfor %}
