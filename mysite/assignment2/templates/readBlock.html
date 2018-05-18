@@ -9,9 +9,8 @@
   {% if request.get_full_path == "/readGame/"%}
     {% for item in names %}
     <div class='infoBox'>
-      <h1> Game Entry </h1>
+      <h1> {{item.gameName}} </h1>
       <ul>
-        <li>Name of the game:  {{item.gameName}}</li>
         <li>Description of the game:  {{item.description}}</li>
         <li>The price of the game(in dollars):  {{item.price}}</li>
         <li>The game was or will be released on:  {{item.releaseDate}}</li>
@@ -25,6 +24,7 @@
     {% for item in names %}
     <div class='infoBox'>
       <ul>
+        <h1> {{item.publisherName}} </h1>
         <li>Name of the Publisher:{{item.publisherName}}</li>
         <li>Publishers Location:{{item.Location}}</li>
         <li>Date they were founded:{{item.dateFounded}}</li>
@@ -36,6 +36,7 @@
     {% for item in names %}
     <div class='infoBox'>
       <ul>
+        <h1> Memory needed : {{item.memoryNeeded}}</h1>
         <li>Minimum memory needed: {{item.memoryNeeded}}</li>
         <li>Minimum Hard Disk space:{{item.miniumumDiskSpace}}</li>
         <li>Minimum GPU required:{{item.gpuRequired}}</li>
